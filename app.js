@@ -18,5 +18,5 @@ fetch("https://api.thecatapi.com/v1/images/search")
 }
 
 function removeCats(){
-    document.getElementById("bullshit").remove  ();
+    document.getElementById("bullshit").remove();
 }
