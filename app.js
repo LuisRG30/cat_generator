@@ -1,13 +1,25 @@
 function generateCat(){
-    var url = "cat_images/cat";
-    var nCat = Math.round((Math.random()*100000)%25);
-    nCat.toString();
-    url = url + nCat + ".jpg";
+
+fetch("https://api.thecatapi.com/v1/images/search")
+    .then((response) => response.json())
+    .then(data => {
+        var image = document.createElement("img");
+        image.setAttribute("id","bullshit")
+        var div = document.getElementById("flex-cat-gen");
+        image.src = data["url"];
+        div.appendChild(image);
+    })
+    .catch(error => {
+        return error;
+    });
+        
     var image = document.createElement("img");
     image.setAttribute("id","bullshit")
     var div = document.getElementById("flex-cat-gen");
     image.src = url;
     div.appendChild(image);
+
+
 }
 
 function removeCats(){
