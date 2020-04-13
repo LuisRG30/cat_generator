@@ -12,12 +12,7 @@ fetch("https://api.thecatapi.com/v1/images/search")
     .catch(error => {
         return error;
     });
-        
-    var image = document.createElement("img");
-    image.setAttribute("id","bullshit")
-    var div = document.getElementById("flex-cat-gen");
-    image.src = url;
-    div.appendChild(image);
+
 
 
 }
