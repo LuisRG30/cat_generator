@@ -1,24 +1,16 @@
 function generateCat(){
 
-fetch("https://api.thecatapi.com/v1/images/search")
-    .then((response) => response)
-    .then(data => {
-        if(typeof data == "object")
-            console.log("Wuju!")
-        var image = document.createElement("img");
-        image.setAttribute("id","bullshit")
-        var div = document.getElementById("flex-cat-gen");
-        var url = data["url"];
-        console.log(url)
-        image.src = url;
-        div.appendChild(image);
-    })
-    .catch(error => {
-        return error;
-    });
-
-
-
+    fetch("https://api.thecatapi.com/v1/images/search")
+        .then(function(resp){
+            return resp.json()
+        })
+        .then(function(data){
+            var image = document.createElement("img");
+            image.setAttribute("id","bullshit")
+            var div = document.getElementById("flex-cat-gen");
+            image.src = data["0"]["url"];
+            div.appendChild(image);
+        })
 }
 
 function removeCats(){
